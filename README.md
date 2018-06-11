@@ -23,11 +23,17 @@
 ***JSP***
 
 >body.jsp
+
 >error.jsp
+
 >login.jsp
+
 >profession.jsp
+
 >reg.jsp
+
 >stringfilter.jsp
+
 >layouts>>
 
 
