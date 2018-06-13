@@ -21,4 +21,6 @@ public interface StudentService {
 
     int insertOne(Student student);
 
+    int updateOne(Student student);
+
 }

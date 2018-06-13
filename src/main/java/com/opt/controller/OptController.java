@@ -17,6 +17,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 /**
  * Controller 核心控制器 页面跳转
@@ -107,6 +110,9 @@ public class OptController {
         }
         HttpSession session = request.getSession();
         session.invalidate();
+
+        Page<Student> pages = studentService.findByPage(2,4);
+        model.addAttribute("students",pages.getPages());
         return "home";
     }
     @RequestMapping(value = "/u/login",method = POST)
@@ -222,5 +228,38 @@ public class OptController {
         logger.info("\ncommend");return "commend";
     }
 
+
+    @RequestMapping(value = "/u/list")
+    public String studentList(@RequestParam(value = "nowPage",defaultValue = "1")Integer nowpage,
+                              @RequestParam(value = "pagesize",defaultValue = "5")Integer pagesize,Model model){
+        logger.info("\nnowpage="+ nowpage + "pagesize=" + pagesize);
+        Page<Student> page = studentService.findByPage(nowpage,pagesize);
+//        List<Student> students = page.getPages();
+        model.addAttribute("nowPages",page);
+        return "list";
+    }
+
+    @RequestMapping(value = "/u/student/{id}")
+    public String toUpdStudent(@PathVariable("id")Integer id,Model model){
+        Student student = studentService.findByID(id);
+        if (student!=null){
+
+            model.addAttribute("studentInfo",student);
+        }
+        return "updStudent";
+    }
+    @RequestMapping(value = "/u/student",method = PUT)
+    public String updStudent(Student student,Model model){
+        int flag = studentService.updateOne(student);
+        if (flag!=0){
+            message = "修改成功";
+        }else {
+            message = "修改失败";
+            model.addAttribute("message",message);
+            return "redirect:updStudent";
+        }
+        model.addAttribute("message",message);
+        return "redirect:list";
+    }
 
 }

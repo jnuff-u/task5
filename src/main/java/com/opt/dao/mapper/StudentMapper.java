@@ -23,4 +23,6 @@ public interface StudentMapper {
 
     int insertOne(Student student);
 
+    int updateOne(Student student);
+
 }

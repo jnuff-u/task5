@@ -24,5 +24,6 @@
 
 <script src="${pageContext.request.contextPath}/stat/css/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/stat/css/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/stat/js/layer/layer.js"></script>
 </body>
 </html>

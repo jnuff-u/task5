@@ -65,6 +65,7 @@
                     <li class="active"><a href="/home" class="navigation">首页</a></li>
                     <li><a href="/u/profession" class="navigation">职业</a></li>
                     <li><a href="/u/commend" class="navigation">推荐</a></li>
+                    <li><a href="/u/list" class="navigation">列表页</a></li>
                     <li><a href="#" class="navigation">关于</a></li>
                 </ul>
             </div>

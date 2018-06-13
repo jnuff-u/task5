@@ -42,9 +42,18 @@
         <put-attribute name="body" value="/WEB-INF/jsp/body/reg.jsp" />
     </definition>
 
-    <!--项目 注册页面-->
+    <!--项目 error页面-->
     <definition name="error"  extends="index">
         <put-attribute name="body" value="/WEB-INF/jsp/body/error.jsp" />
     </definition>
 
+    <!--项目 列表页面-->
+    <definition name="list"  extends="index">
+        <put-attribute name="body" value="/WEB-INF/jsp/body/list.jsp" />
+    </definition>
+
+    <!--项目 编辑页面-->
+    <definition name="updStudent"  extends="index">
+        <put-attribute name="body" value="/WEB-INF/jsp/body/updstudent.jsp" />
+    </definition>
 </tiles-definitions>

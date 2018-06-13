@@ -63,12 +63,12 @@ public class JWTUtil {
     public DecodedJWT decodedToken(String token) throws Exception,JWTVerificationException ,TokenExpiredException{
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
         DecodedJWT jwt ;
-//        try {
+        try {
             jwt = verifier.verify(token);
-//        } catch (TokenExpiredException e) {
-//            e.fillInStackTrace();
-//            throw new RuntimeException("凭证过期！请重新登录!");
-//        }
+        } catch (TokenExpiredException e) {
+            e.fillInStackTrace();
+            throw new RuntimeException("凭证过期！请重新登录!");
+        }
         return jwt;
     }
 

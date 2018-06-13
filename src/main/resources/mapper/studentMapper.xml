@@ -110,5 +110,10 @@
             select @@IDENTITY AS ID
         </selectKey>
     </insert>
-
+    <!--修改数据-->
+    <update id="updateOne" parameterType="com.opt.model.Student" >
+        UPDATE jnshu_students
+        SET
+        update_at=#{update_at},stuName=#{stuName},stuPhoto=#{stuPhoto},sex=#{sex},age=#{age},school=#{school},office=#{office},pro_id=#{pro_id},recommend=#{recommend} WHERE id=#{id}
+    </update>
 </mapper>

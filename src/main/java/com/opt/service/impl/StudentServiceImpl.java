@@ -79,4 +79,9 @@ public class StudentServiceImpl implements StudentService {
 
         return page;
     }
+
+    @Override
+    public int updateOne(Student student) {
+        return studentMapper.updateOne(student);
+    }
 }
