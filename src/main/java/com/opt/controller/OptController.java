@@ -236,6 +236,7 @@ public class OptController {
         Page<Student> page = studentService.findByPage(nowpage,pagesize);
 //        List<Student> students = page.getPages();
         model.addAttribute("nowPages",page);
+        logger.info(page.getPages().toString());
         return "list";
     }
 
@@ -250,6 +251,7 @@ public class OptController {
     }
     @RequestMapping(value = "/u/student",method = PUT)
     public String updStudent(Student student,Model model){
+        logger.info("\n信息："+student);
         int flag = studentService.updateOne(student);
         if (flag!=0){
             message = "修改成功";

@@ -57,7 +57,8 @@
                             <td>${item.id}</td>
                             <td>${item.stuName}</td>
                             <td>${item.stuPhoto}</td>
-                            <td><c:if test="${item.sex == 0}">女
+                            <td>
+                                <c:if test="${item.sex == 0}">女
                             </c:if>
                                 <c:if test="${item.sex == 1}">男
                                 </c:if>

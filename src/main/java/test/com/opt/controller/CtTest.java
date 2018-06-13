@@ -2,6 +2,7 @@ package test.com.opt.controller;
 
 import com.opt.dao.mapper.OptUserMapper;
 import com.opt.model.OptUser;
+import com.opt.service.impl.StudentServiceImpl;
 import com.opt.service.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -24,6 +25,7 @@ public class CtTest {
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationcontext.xml");
 //    OptUserMapper optUserMapper = (OptUserMapper) applicationContext.getBean("userMapper");
     UserServiceImpl userService = (UserServiceImpl) applicationContext.getBean("userService");
+    StudentServiceImpl studentService = (StudentServiceImpl) applicationContext.getBean("studentService");
 
 
     @Before
@@ -45,7 +47,8 @@ public void testTest() throws Exception {
 //    OptUser optUser = new OptUser();
 //    optUser.setUsername("第一个");
 //    optUserMapper.insert(optUser);
-    logger.info(userService.findByName("ceshi"));
+//    logger.info(userService.findByName("ceshi"));
+    logger.info(studentService.findByID(1).toString());
 
 
 

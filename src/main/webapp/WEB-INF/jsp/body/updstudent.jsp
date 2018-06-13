@@ -52,16 +52,17 @@
                         <div class="col-md-10">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="sex" id="sex0" value="0" > 女
+                                    <input type="radio" name="sex" id="sex0" value="0" <c:if test="${requestScope.studentInfo.sex == 0}"> checked </c:if> > 女
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="sex" id="sex1" value="1" checked>男
+                                    <input type="radio" name="sex" id="sex1" value="1" <c:if test="${requestScope.studentInfo.sex == 1}"> checked </c:if>>男
                                 </label>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <label for="age" class="col-md-2 from-label">年龄</label>
                         <div class="col-md-10">
